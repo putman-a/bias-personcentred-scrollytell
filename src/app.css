@@ -1,0 +1,24 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0d0e11;
+  --surface: #161820;
+  --surface2: #1e2028;
+  --border: rgba(255, 255, 255, 0.07);
+  --border2: rgba(255, 255, 255, 0.12);
+  --text: #e8e9ed;
+  --muted: #7a7d8a;
+  --accent: #c9f0ff;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Syne', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
