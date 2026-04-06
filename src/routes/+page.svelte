@@ -98,21 +98,21 @@
   // ── Case studies ──────────────────────────────────────────────────────────
   const CASE_STUDIES = [
     {
-      label: 'Person I',
-      title: 'Placeholder title',
-      body: 'Placeholder body text for case study one. This will be replaced with a real personal story about how AI bias affected this person.',
+      label: 'Searching for his first "real" job',
+      title: 'Amir',
+      body: 'Amir has recently graduated from university with a bachelor\'s of commerce and is looking to get his start in industry and be able to better support his mother as she reaches retirement as well as his future kids - he hopes to have 3. <br><br> Amir knows the job market is particulary tough for new grads right now, and has heard from his friends that the AI resume screening tools that so many companies aren\'t extactly fair. In fact his friend Sayan told him that she only started getting interviews after changing her name on her resume to Sarah. She said that once you get an interview everything is just fine, but that gaming the resume screening AI by pretending to seem more "white" is "just what you have to do" to get an interview nowadays. <br><br> Amir feels strongly that no company in 2026 would really use such a system. And if even if they did, that would definitely not be the type of company that <i>he</i> would want to work for. At he same time he is really starting to feel anxious about his lack of interview offers...',
       photo: null,
     },
     {
-      label: 'Person II',
-      title: 'Placeholder title',
-      body: 'Placeholder body text for case study two. This will be replaced with a real personal story about how AI bias affected this person.',
+      label: 'Keeping his head above water in a torrent of job applications',
+      title: 'Joel',
+      body: 'Joel is in his 40s and left his previous position to become the HR manager of a brand new financial firm for just over 3 years ago. The company now has more than 50 employees and Joel is really loving working for a company where he knows everybody\'s name. Joel takes special pride in the new grads he hires, seeing them grow into the professionals he saw in them when he interviewed them. <br><br> But handling HR and finding new candidates in today\'s job landscape is no easy task. Before retiring after a nasty battle with COVID, Joel\'s Aunt was a human rights lawyer and his hero. He learned all about how biases and stereotypes can subconciously influece a person\'s decision-making, which sparked his interested in AI resume sorting systems in the first place. <br><br> In the mid 2010s the first commercially avaialbe AI resume filtering systems were being sold as a way to "remove the human bias" from the screening process. While Joel had quickly grown disillusioned by the reality of these so-called "human bias-free" AI systems he also saw the potential for these tools as a way to help navigate the seemingly endless number of applictions that companies were recieving - last month alone he had recieved more than 8,000 resumes for just 3 positions! Afterall, if Joel made sure he was being really dilligent in not letting his pre-existing biases influence his hiring decisions, surely that could make up for the AI\'s limitations... especially considering the alternative of not having the time to even look at most of the resumes he recieved!',
       photo: null,
     },
     {
-      label: 'Person III',
-      title: 'Placeholder title',
-      body: 'Placeholder body text for case study three. This will be replaced with a real personal story about how AI bias affected this person.',
+      label: 'Concerned AI researcher',
+      title: 'Katya',
+      body: 'Katya, a scientist in her early 30s, earned her PhD studying advanced algorithm design and has prided herself in her creativity and unique puzzle-solving ability ever since she was given her first LEGO set as hand-me-down from her older sister. Katya has never shied away from being herself and looks back fondly on her work as a member of her school\'s Women in STEM society throughout her graduate studies. It was one of her big inspirations for setting up an "anyone can code" workshop with her local libray shortly after moving cities to take start her current position as Cheif Computer Scientist for an up-and-coming tech company. <br><br> Katya\'s work has given her the opportunity to collaborate with computer scientists from all over the world, an opportunity she was sure not to miss. <br><br> Over the past few yeasrs Katya has seen a number of troubling issues regarding the fairness of current AI resume screening systems and this has inspired her to create a new AI resume screening system that is less discriminatory towards people with "non-English" names.',
       photo: null,
     },
   ];
@@ -216,7 +216,7 @@
       <StatCard label="MIT Classified"  value={classifiedCount.toLocaleString()} />
     </div>
 
-    <!-- Scrollytelling section -->
+    <!-- First scrollytelling section -->
     <Scroller offset={0.5} on:stepenter={handleStepEnter} on:stepexit={handleStepExit}>
 
       <!-- LEFT: sticky graphic panel -->
@@ -237,11 +237,6 @@
             on:hover={handleHover}
           />
           <Legend {hidden} on:change={handleLegendChange} />
-
-        <!-- Future charts slot in here, e.g.:
-        {:else if activeChart === 'heatmap'}
-          <HeatmapChart {years} {yearDomain} />
-        -->
 
         {/if}
       </div>
@@ -269,6 +264,23 @@
 
   <!-- Photo-background scrolly: one full-bleed panel per case study -->
   <PhotoScroller steps={CASE_STUDIES} />
+
+  <!--- Outro section -->
+   <div class="ontro">
+    <h2>So what?</h2>
+    <p>
+        Amir, Joel, Katya, and the thousands of people all over the world like them are deeply passionate about making fair AI systems, so why hasn't it happened?
+        <br><br>
+        It is easy to brush off these failures as being the results of corporate greed or a lack of caring by those in power, but there is also a fundamental component of fairness that is missing from current efforts to make fair AI systems - <strong style="color: #e05c8a;">fairness is not single, measurable thing</strong>, it includes a variety of prinicples <strong style="color: #e05c8a;">that we decide to value</strong>. There is not universal equation for fairness. Fairness requires <strong style="color: #e05c8a;">us</strong>.
+        <br><br>
+        AI systems have the potential to be greatly beneficial, but no human-made technology exists outside of human influence. Similarly, the fairness of a technology is not an inherent part of the teechnology itself, it exists only within the context it is used and the experiences of the people who build, work with, and are afffected by it.
+        <br><br>
+        We can ensure that technologies are fair. But we can\'t do it alone.
+    </p>
+    <br>
+   </div> 
+
+   <div></div>
 
   <footer class="page-footer">
     <div class="page-footer-inner">
