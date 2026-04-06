@@ -8,6 +8,7 @@
   import Tooltip from '$lib/incidentTooltip.svelte';
   import Scroller from '$lib/scoller.svelte';
   import Step from '$lib/step.svelte';
+  import PhotoScroller from '$lib/PhotoScroller.svelte';
   import { color } from 'chart.js/helpers';
 
   // ── Data ──────────────────────────────────────────────────────────────────
@@ -92,6 +93,28 @@
     //   title: 'A different lens',
     //   body: 'Looking at the same data as a heatmap reveals...',
     // },
+  ];
+
+  // ── Case studies ──────────────────────────────────────────────────────────
+  const CASE_STUDIES = [
+    {
+      label: 'Person I',
+      title: 'Placeholder title',
+      body: 'Placeholder body text for case study one. This will be replaced with a real personal story about how AI bias affected this person.',
+      photo: null,
+    },
+    {
+      label: 'Person II',
+      title: 'Placeholder title',
+      body: 'Placeholder body text for case study two. This will be replaced with a real personal story about how AI bias affected this person.',
+      photo: null,
+    },
+    {
+      label: 'Person III',
+      title: 'Placeholder title',
+      body: 'Placeholder body text for case study three. This will be replaced with a real personal story about how AI bias affected this person.',
+      photo: null,
+    },
   ];
 
   // ── Scroll handler ────────────────────────────────────────────────────────
@@ -235,13 +258,25 @@
 
     </Scroller>
 
-    <footer>
-      <span>Source: MIT AI Incident Database · MIT Risk Classification</span>
-      <span>{totalRows.toLocaleString()} records loaded</span>
-    </footer>
-
   {/if}
 </div>
+
+{#if !loading}
+  <!-- Bridge between data section and personal case studies -->
+  <section class="transition-bridge">
+    <p class="bridge-text">But what does this have to do with me?</p>
+  </section>
+
+  <!-- Photo-background scrolly: one full-bleed panel per case study -->
+  <PhotoScroller steps={CASE_STUDIES} />
+
+  <footer class="page-footer">
+    <div class="page-footer-inner">
+      <span>Source: MIT AI Incident Database · MIT Risk Classification</span>
+      <span>{totalRows.toLocaleString()} records loaded</span>
+    </div>
+  </footer>
+{/if}
 
 <!-- Tooltip lives outside the scroll layout so it's never clipped -->
 <Tooltip year={ttYear} {yearDomain} x={ttX} y={ttY} visible={ttVisible} />
@@ -374,5 +409,46 @@
   @keyframes pulse {
     0%, 100% { opacity: 0.2; transform: scale(0.8); }
     50%       { opacity: 1;   transform: scale(1.1); }
+  }
+
+  /* ── Transition bridge ───────────────────────────────────────── */
+  :global(.transition-bridge) {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg);
+    padding: 4rem 2rem;
+  }
+
+  :global(.bridge-text) {
+    font-size: clamp(1.3rem, 3.5vw, 2rem);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--muted);
+    text-align: center;
+    max-width: 600px;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Footer (outside .page) ──────────────────────────────────── */
+  :global(.page-footer) {
+    background: var(--bg);
+    border-top: 0.5px solid var(--border);
+    padding: 1.5rem 2rem;
+  }
+
+  :global(.page-footer-inner) {
+    max-width: 1100px;
+    margin: 0 auto;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.06em;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 </style>
