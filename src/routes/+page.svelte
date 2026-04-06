@@ -192,34 +192,32 @@
     </div>
   {:else}
 
-   <!--- Intro section -->
-   <div class="intro">
+  <!--- Intro section -->
+  <div class="intro">
     <h2>What's Happening Now</h2>
     <p>
-        As AI and other prediction-baesd technologies have been rapidly incorporated into nearly every industry and aspect of life we often see scifi-esque speculation about "AIs evolving beyond human control" or disucssions of the "extistential threat" that AI will pose in the at some unspecified point in our future.
-        <br><br>
-        However, despite the seeming urgence of these concerns, what is rarely talked about in these discussions of the dangers of AI are the <strong style="color: #e05c8a;">real harms</strong> that these technologies are causing <strong style="color: #e05c8a;">right now</strong>.
-        <br><br>
+      As AI and other prediction-baesd technologies have been rapidly incorporated into nearly every industry and aspect of life we often see scifi-esque speculation about "AIs evolving beyond human control" or disucssions of the "extistential threat" that AI will pose in the at some unspecified point in our future.
+      <br><br>
+      However, despite the seeming urgence of these concerns, what is rarely talked about in these discussions of the dangers of AI are the <strong style="color: #e05c8a;">real harms</strong> that these technologies are causing <strong style="color: #e05c8a;">right now</strong>.
+      <br><br>
     </p>
     <br>
-   </div> 
+  </div> 
 
-   <div></div>
+  <div class="eyebrow">The AI <span>Incident Database</span></div>
 
-   <div class="eyebrow">The AI <span>Incident Database</span></div>
+  <!-- Summary stats above scroll section -->
+  <div class="stats-row">
+    <StatCard label="Total Incidents" value={totalIncidents.toLocaleString()} />
+    <StatCard label="Years Covered"   value={yearRange} />
+    <StatCard label="Peak Year"       value={String(peakYear.year ?? '—')} />
+    <StatCard label="MIT Classified"  value={classifiedCount.toLocaleString()} />
+  </div>
 
-    <!-- Summary stats above scroll section -->
-    <div class="stats-row">
-      <StatCard label="Total Incidents" value={totalIncidents.toLocaleString()} />
-      <StatCard label="Years Covered"   value={yearRange} />
-      <StatCard label="Peak Year"       value={String(peakYear.year ?? '—')} />
-      <StatCard label="MIT Classified"  value={classifiedCount.toLocaleString()} />
-    </div>
+  <!-- First scrollytelling section -->
+  <Scroller offset={0.5} on:stepenter={handleStepEnter} on:stepexit={handleStepExit}>
 
-    <!-- First scrollytelling section -->
-    <Scroller offset={0.5} on:stepenter={handleStepEnter} on:stepexit={handleStepExit}>
-
-      <!-- LEFT: sticky graphic panel -->
+    <!-- LEFT: sticky graphic panel -->
       <div slot="graphic" class="graphic-inner" class:transitioning={isTransitioning}>
 
         {#if activeChart === 'incidents'}
@@ -241,17 +239,17 @@
         {/if}
       </div>
 
-      <!-- RIGHT: narrative steps -->
-      <div slot="steps">
-        {#each STEPS as step, i}
-          <Step index={i} active={currentStep === i}>
-            <h2>{step.title}</h2>
-            <p style="{step.color ? '--strong-color: ' + step.color : undefined}">{@html step.body}</p>
-          </Step>
-        {/each}
-      </div>
+    <!-- RIGHT: narrative steps -->
+    <div slot="steps">
+      {#each STEPS as step, i}
+        <Step index={i} active={currentStep === i}>
+          <h2>{step.title}</h2>
+          <p style="{step.color ? '--strong-color: ' + step.color : undefined}">{@html step.body}</p>
+        </Step>
+      {/each}
+    </div>
 
-    </Scroller>
+  </Scroller>
 
   {/if}
 </div>
@@ -266,29 +264,21 @@
   <PhotoScroller steps={CASE_STUDIES} />
 
   <!--- Outro section -->
-   <div class="outro">
+  <section class="outro">
     <h2>So what?</h2>
     <p>
-        Amir, Joel, Katya, and the thousands of people all over the world like them are deeply passionate about making fair AI systems, so why hasn't it happened?
-        <br><br>
-        It is easy to brush off these failures as being the results of corporate greed or a lack of caring by those in power, but there is also a fundamental component of fairness that is missing from current efforts to make fair AI systems - <strong style="color: #e05c8a;">fairness is not single, measurable thing</strong>, it includes a variety of prinicples <strong style="color: #e05c8a;">that we decide to value</strong>. There is not universal equation for fairness. Fairness requires <strong style="color: #e05c8a;">us</strong>.
-        <br><br>
-        AI systems have the potential to be greatly beneficial, but no human-made technology exists outside of human influence. Similarly, the fairness of a technology is not an inherent part of the teechnology itself, it exists only within the context it is used and the experiences of the people who build, work with, and are afffected by it.
-        <br><br>
-        We can ensure that technologies are fair. But we can\'t do it alone.
+      Amir, Joel, Katya, and the thousands of people all over the world like them are deeply passionate about making fair AI systems, so why hasn't it happened?
+      <br><br>
+      It is easy to brush off these failures as being the results of corporate greed or a lack of caring by those in power, but there is also a fundamental component of fairness that is missing from current efforts to make fair AI systems - <strong style="color: #e05c8a;">fairness is not single, measurable thing</strong>, it includes a variety of prinicples <strong style="color: #e05c8a;">that we decide to value</strong>. There is not universal equation for fairness. Fairness requires <strong style="color: #e05c8a;">us</strong>.
+      <br><br>
+      AI systems have the potential to be greatly beneficial, but no human-made technology exists outside of human influence. Similarly, the fairness of a technology is not an inherent part of the teechnology itself, it exists only within the context it is used and the experiences of the people who build, work with, and are afffected by it.
+      <br><br>
+      We can ensure that technologies are fair. But we can\'t do it alone.
     </p>
     <br>
-   </div> 
-
-   <div></div>
-
-  <footer class="page-footer">
-    <div class="page-footer-inner">
-      <span>Source: MIT AI Incident Database · MIT Risk Classification</span>
-      <span>{totalRows.toLocaleString()} records loaded</span>
-    </div>
-  </footer>
-{/if}
+  </section> 
+  
+  {/if}
 
 <!-- Tooltip lives outside the scroll layout so it's never clipped -->
 <Tooltip year={ttYear} {yearDomain} x={ttX} y={ttY} visible={ttVisible} />
@@ -385,20 +375,6 @@
     opacity: 0;
   }
 
-  footer {
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 0.5px solid var(--border);
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 0.06em;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
   .loading {
     display: flex;
     gap: 8px;
@@ -444,50 +420,25 @@
     letter-spacing: -0.01em;
   }
 
-  /* ── Footer (outside .page) ──────────────────────────────────── */
-  :global(.page-footer) {
-    background: var(--bg);
-    border-top: 0.5px solid var(--border);
-    padding: 1.5rem 2rem;
-  }
-
-  :global(.page-footer-inner) {
-    max-width: 1100px;
+/* ── Outro text section ─────────────────────────────── */
+  :global(.outro) {
+    max-width: 680px;   /* narrower than .page for comfortable reading */
+    padding: 3rem 2rem;
     margin: 0 auto;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 0.06em;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
+    background: var(--bg);
   }
 
-  /* ── Intro / Outro text sections ─────────────────────────────── */
-.intro,
-.outro {
-  max-width: 680px;   /* narrower than .page for comfortable reading */
-  padding: 3rem 2rem;
-}
+  :global(.outro h2) {
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
 
-.outro {
-  margin: 0 auto;     /* center it, since it's outside .page */
-}
-
-.intro h2,
-.outro h2 {
-  font-size: clamp(1.2rem, 3vw, 1.6rem);
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: var(--text);
-}
-
-.intro p,
-.outro p {
-  font-size: 15px;
-  line-height: 1.75;
-  color: var(--muted);
-  max-width: 60ch;
-}
+  :global(.outro p) {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--muted);
+    max-width: 60ch;
+  }
 </style>
