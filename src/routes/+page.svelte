@@ -266,7 +266,7 @@
   <PhotoScroller steps={CASE_STUDIES} />
 
   <!--- Outro section -->
-   <div class="ontro">
+   <div class="outro">
     <h2>So what?</h2>
     <p>
         Amir, Joel, Katya, and the thousands of people all over the world like them are deeply passionate about making fair AI systems, so why hasn't it happened?
@@ -463,4 +463,31 @@
     flex-wrap: wrap;
     gap: 8px;
   }
+
+  /* ── Intro / Outro text sections ─────────────────────────────── */
+.intro,
+.outro {
+  max-width: 680px;   /* narrower than .page for comfortable reading */
+  padding: 3rem 2rem;
+}
+
+.outro {
+  margin: 0 auto;     /* center it, since it's outside .page */
+}
+
+.intro h2,
+.outro h2 {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+.intro p,
+.outro p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--muted);
+  max-width: 60ch;
+}
 </style>
