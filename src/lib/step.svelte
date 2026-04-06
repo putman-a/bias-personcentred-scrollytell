@@ -22,7 +22,7 @@
 
 <style>
   .step {
-    min-height: 75vh;
+    min-height: 50vh; /* minimum height is 50% of view height */
     display: flex;
     gap: 1rem;
     align-items: flex-start;
@@ -78,7 +78,7 @@
   }
 
   .step-content :global(strong) {
-    color: var(--text);
+    color: var(--strong-color, var(--text));
     font-weight: 600;
   }
 </style>

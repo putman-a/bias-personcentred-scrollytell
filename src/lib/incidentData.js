@@ -5,9 +5,9 @@ export const DOMAINS = [
   { key: '2. Privacy & Security',                           label: 'Privacy & Security',                color: '#e05c8a' },
   { key: '3. Misinformation',                               label: 'Misinformation',                    color: '#f0a030' },
   { key: '4. Malicious Actors & Misuse',                    label: 'Malicious Actors & Misuse',         color: '#e24b4a' },
-  { key: '5. Human-Computer Interaction',                   label: 'Human-Computer Interaction',        color: '#2dcca0' },
+  { key: '5. Human-Computer Interaction',                   label: 'Human-Computer Interaction',        color: '#8a8f9e' },
   { key: '6. Socioeconomic & Environmental Harms',          label: 'Socioeconomic & Environmental',     color: '#9b7fe8' },
-  { key: '7. AI system safety, failures, and limitations',  label: 'AI System Safety & Failures',       color: '#8a8f9e' },
+  { key: '7. AI system safety, failures, and limitations',  label: 'AI System Safety & Failures',       color: '#2dcca0' },
   { key: 'NA',                                              label: 'Unclassified / Other',              color: '#50545e' },
 ];
 

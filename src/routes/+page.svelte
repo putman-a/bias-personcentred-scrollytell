@@ -8,6 +8,7 @@
   import Tooltip from '$lib/incidentTooltip.svelte';
   import Scroller from '$lib/scoller.svelte';
   import Step from '$lib/step.svelte';
+  import { color } from 'chart.js/helpers';
 
   // ── Data ──────────────────────────────────────────────────────────────────
   let years = [];
@@ -51,38 +52,40 @@
       mode: 'bar',
       hidden: new Set(),
       title: 'The rise of AI incidents',
-      body: 'Since 2008, documented AI-related incidents have grown year on year. Each bar represents the total incidents recorded in that year.',
+      body: 'Since 2008, documented instances of AI-related harms have grown year on year, dramatically so over since the release of large language models like OpenAI\'s ChatGPT, Google\'s Gemini and Anthropic\'s Claude in the early 2020s. <br><br><br> <i>Each bar represents the number of AI harm incidents recorded in the AI Incident Database during that year. Hover over each bar to see a breakdown those incidients using the MIT Risk Repository classification system</i>.',
     },
     {
       chart: 'incidents',
       mode: 'stacked',
       hidden: new Set(DOMAINS.map(d => d.key).filter(k => k !== '1. Discrimination and Toxicity')),
-      title: 'Discrimination dominated early',
-      body: '<strong>Discrimination & Toxicity</strong> was the defining risk category in the early years — biased search results, unfair hiring tools, and toxic content recommendation systems.',
+      title: 'Automated discrimination; early and often',
+      color: DOMAINS.find(d => d.key === '1. Discrimination and Toxicity').color,
+      body: '<strong>Discrimination & Toxicity</strong> was the most common type of harm athroughout the first years of reports documented in the AI Incident Database and continues to this day. These harms include racial bias in search results, unfair hiring tools, and content recommendation systems designed to prioritize toxic content and hate to its users. <br><br>Importantly, while these harms happen when AI technologies impact our lives, these systems do not magickly pop into existence devoid of influence from the humans who created them. AI systems reflect our biases, stereotypes, blind-spots and ignorances just like any other form of technology.<br><br><br> <i>You can click on the categories in the legend below the bar chart to explore other classifications of AI harms as well</i>.',
     },
-    {
+/*     {
       chart: 'incidents',
       mode: 'stacked',
       hidden: new Set(DOMAINS.map(d => d.key).filter(k => k !== '2. Privacy & Security')),
       title: 'Privacy concerns compound',
-      body: '<strong>Privacy & Security</strong> incidents have climbed steadily as AI systems process ever-larger volumes of personal data, from facial recognition to health-record analysis.',
-    },
+      color: DOMAINS.find(d => d.key === '2. Privacy & Security').color,
+      body: '<strong>Privacy & Security</strong> incidents have climbed steadily as AI systems process ever-larger volumes of personal data, and begin to be used commercially for tasks from facial recognition in policing to personalized health rommendation systems and beyond.',
+    }, */
     {
       chart: 'incidents',
       mode: 'line',
       hidden: new Set(DOMAINS.map(d => d.key).filter(k =>
         !['7. AI system safety, failures, and limitations', '4. Malicious Actors & Misuse'].includes(k)
       )),
-      title: 'Safety failures and misuse surge',
-      body: 'After 2019, <strong>AI System Safety failures</strong> and <strong>Malicious Actors & Misuse</strong> accelerated sharply — driven by the proliferation of large language models and generative tools.',
+      title: 'Safety failures and malicous use surges',
+      body: 'After 2019, <strong style="color: #2dcca0;}">AI System Safety failures</strong> and <strong style="color: #e24b4a;}">Malicious Actors & Misuse</strong> have accelerated sharply in the wake of the introduction of publicly available large language models and generative AI tools.<br><br>This new era of rapid genAI adoption has so far seen a similarly rapid rise in unintentional harms from poor system design. These genAI tools have also simulatenously empowered bad actors all over the world to wreak harm upon their fellow human beings with seemingly little to no consequences.<br><br><br> <i>You can click on the categories in the legend below the bar chart to explore other classifications of AI harms as well</i>.',
     },
-    {
+/*     {
       chart: 'incidents',
       mode: 'total',
       hidden: new Set(),
       title: 'The full picture',
       body: 'Taken together, the total incident count has roughly <strong>doubled every two years</strong> since 2015. Unclassified incidents in the most recent years reflect ongoing classification work.',
-    },
+    }, */
     // ── Add future steps here ─────────────────────────────────────────────
     // {
     //   chart: 'heatmap',
@@ -147,15 +150,14 @@
 
 <svelte:window on:mousemove={handleMousemove} />
 
+<!-- Page Layout -->
 <div class="page">
 
   <!-- Full-width header -->
   <header>
-    <div class="eyebrow">MIT AI Risk Repository · Incident Database</div>
-    <h1>Who Says <span>Its Fair?</span></h1>
+    <h1>Who Says <span>It's Fair?</span></h1>
     <p class="subtitle">
-      Scroll to explore how documented AI-related incidents have grown,
-      and which risk domains drove each era.
+      A look at how AI "fairness" is determined.
     </p>
   </header>
 
@@ -166,6 +168,22 @@
       <span class="loading-dot"></span>
     </div>
   {:else}
+
+   <!--- Intro section -->
+   <div class="intro">
+    <h2>What's Happening Now</h2>
+    <p>
+        As AI and other prediction-baesd technologies have been rapidly incorporated into nearly every industry and aspect of life we often see scifi-esque speculation about "AIs evolving beyond human control" or disucssions of the "extistential threat" that AI will pose in the at some unspecified point in our future.
+        <br><br>
+        However, despite the seeming urgence of these concerns, what is rarely talked about in these discussions of the dangers of AI are the <strong style="color: #e05c8a;">real harms</strong> that these technologies are causing <strong style="color: #e05c8a;">right now</strong>.
+        <br><br>
+    </p>
+    <br>
+   </div> 
+
+   <div></div>
+
+   <div class="eyebrow">The AI <span>Incident Database</span></div>
 
     <!-- Summary stats above scroll section -->
     <div class="stats-row">
@@ -210,7 +228,7 @@
         {#each STEPS as step, i}
           <Step index={i} active={currentStep === i}>
             <h2>{step.title}</h2>
-            <p>{@html step.body}</p>
+            <p style="{step.color ? '--strong-color: ' + step.color : undefined}">{@html step.body}</p>
           </Step>
         {/each}
       </div>
