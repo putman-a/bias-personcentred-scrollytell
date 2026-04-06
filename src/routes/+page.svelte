@@ -17,7 +17,7 @@
 
   // ── Chart state (driven by scroll) ────────────────────────────────────────
   let activeChart = 'incidents'; // sets incidents chart as intial chart
-  let mode = 'stacked';
+  let mode = 'bar';
   let hidden = new Set();
   let isTransitioning = false;
   let currentStep = -1;
@@ -48,10 +48,10 @@
   const STEPS = [
     {
       chart: 'incidents',
-      mode: 'stacked',
+      mode: 'bar',
       hidden: new Set(),
       title: 'The rise of AI incidents',
-      body: 'Since 2008, documented AI-related incidents have grown year on year. Each bar represents one year; the colours show which risk domain each incident falls under.',
+      body: 'Since 2008, documented AI-related incidents have grown year on year. Each bar represents the total incidents recorded in that year.',
     },
     {
       chart: 'incidents',
@@ -182,6 +182,12 @@
       <div slot="graphic" class="graphic-inner" class:transitioning={isTransitioning}>
 
         {#if activeChart === 'incidents'}
+          {#if mode === 'bar' || mode === 'stacked'}
+            <div class="chart-toggle">
+              <button class:active={mode === 'bar'} on:click={() => mode = 'bar'}>Total</button>
+              <button class:active={mode === 'stacked'} on:click={() => mode = 'stacked'}>By domain</button>
+            </div>
+          {/if}
           <IncidentChart
             {years}
             {yearDomain}
@@ -276,6 +282,38 @@
     flex-direction: column;
     height: 100%;
     transition: opacity 0.2s ease;
+  }
+
+  .chart-toggle {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 0.75rem;
+    align-self: flex-end;
+  }
+
+  .chart-toggle button {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border2);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+
+  .chart-toggle button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .chart-toggle button.active {
+    background: rgba(201, 240, 255, 0.1);
+    border-color: var(--accent);
+    color: var(--accent);
   }
 
   .graphic-inner.transitioning {
