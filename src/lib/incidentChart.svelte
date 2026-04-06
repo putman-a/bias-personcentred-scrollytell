@@ -39,6 +39,24 @@
   }
 
   function buildConfig() {
+    if (mode === 'bar') {
+      return {
+        type: 'bar',
+        data: {
+          labels: years,
+          datasets: [{
+            label: 'Total Incidents',
+            data: getTotals(),
+            backgroundColor: 'rgba(201,240,255,0.25)',
+            borderColor: '#c9f0ff',
+            borderWidth: 1,
+            borderRadius: 3,
+          }]
+        },
+        options: makeOptions(false, false),
+      };
+    }
+
     if (mode === 'total') {
       return {
         type: 'line',
