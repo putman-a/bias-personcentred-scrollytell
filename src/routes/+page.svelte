@@ -53,7 +53,7 @@
       mode: 'bar',
       hidden: new Set(),
       title: 'The rise of AI incidents',
-      body: 'Since 2008, documented instances of AI-related harms have grown year on year, dramatically so over since the release of large language models like OpenAI\'s ChatGPT, Google\'s Gemini and Anthropic\'s Claude in the early 2020s. <br><br><br> <i>Each bar represents the number of AI harm incidents recorded in the AI Incident Database during that year. Hover over each bar to see a breakdown those incidients using the MIT Risk Repository classification system</i>.',
+      body: 'Since 2008, documented instances of AI-related harms have grown year-on-year. Dramatically so since the release of large language models like OpenAI\'s ChatGPT, Google\'s Gemini and Anthropic\'s Claude in the early 2020s. <br><br><br> <i>Each bar represents the number of AI harm incidents recorded in the AI Incident Database during that year. <br><br>  <i>Hover over each bar to see a breakdown those incidents using the MIT Risk Repository classification system.</i> <br><br> <b>Note:</b> the high number of unclassified incidents in 2025 is reflective of the MIT classification system having not processed those incidents yet.</i>',
     },
     {
       chart: 'incidents',
@@ -61,7 +61,7 @@
       hidden: new Set(DOMAINS.map(d => d.key).filter(k => k !== '1. Discrimination and Toxicity')),
       title: 'Automated discrimination; early and often',
       color: DOMAINS.find(d => d.key === '1. Discrimination and Toxicity').color,
-      body: '<strong>Discrimination & Toxicity</strong> was the most common type of harm athroughout the first years of reports documented in the AI Incident Database and continues to this day. These harms include racial bias in search results, unfair hiring tools, and content recommendation systems designed to prioritize toxic content and hate to its users. <br><br>Importantly, while these harms happen when AI technologies impact our lives, these systems do not magickly pop into existence devoid of influence from the humans who created them. AI systems reflect our biases, stereotypes, blind-spots and ignorances just like any other form of technology.<br><br><br> <i>You can click on the categories in the legend below the bar chart to explore other classifications of AI harms as well</i>.',
+      body: '<strong>Discrimination & Toxicity</strong> was the most common type of harm throughout the first years of reports documented in the AI Incident Database and has not slowed down since. These harms include racial bias in search results, unfair hiring tools, and content recommendation systems designed to prioritize toxic content and hate to its users. <br><br> Importantly, while these harms happen when AI technologies impact our lives, these systems do not magically pop into existence devoid of influence from the humans who created them. AI systems reflect our biases, stereotypes, blind-spots and ignorances just like any other form of technology. <br><br><br> <i>You can click on the categories in the legend below the bar chart to explore other classifications of AI harms.</i>',
     },
 /*     {
       chart: 'incidents',
@@ -77,8 +77,8 @@
       hidden: new Set(DOMAINS.map(d => d.key).filter(k =>
         !['7. AI system safety, failures, and limitations', '4. Malicious Actors & Misuse'].includes(k)
       )),
-      title: 'Safety failures and malicous use surges',
-      body: 'After 2019, <strong style="color: #2dcca0;}">AI System Safety failures</strong> and <strong style="color: #e24b4a;}">Malicious Actors & Misuse</strong> have accelerated sharply in the wake of the introduction of publicly available large language models and generative AI tools.<br><br>This new era of rapid genAI adoption has so far seen a similarly rapid rise in unintentional harms from poor system design. These genAI tools have also simulatenously empowered bad actors all over the world to wreak harm upon their fellow human beings with seemingly little to no consequences.<br><br><br> <i>You can click on the categories in the legend below the bar chart to explore other classifications of AI harms as well</i>.',
+      title: 'Safety failures and malicious use surges',
+      body: 'After 2019, <strong style="color: #2dcca0;}">AI System Safety failures</strong> and <strong style="color: #e24b4a;}">Malicious Actors & Misuse</strong> have accelerated sharply in the wake of the introduction of publicly available large language models and generative AI tools. <br><br> This new era of rapid genAI adoption has so far seen a similarly rapid rise in unintentional harms from poor system design. These genAI tools have also simultaneously empowered bad actors all over the world to wreak harm upon their fellow human beings with seemingly little to no consequences. <br><br><br> <i>You can click on the categories in the legend below the line chart to explore other classifications of AI harms.</i>',
     },
 /*     {
       chart: 'incidents',
@@ -100,19 +100,19 @@
     {
       label: 'Searching for his first "real" job',
       title: 'Amir',
-      body: 'Amir has recently graduated from university with a bachelor\'s of commerce and is looking to get his start in industry and be able to better support his mother as she reaches retirement as well as his future kids - he hopes to have 3. <br><br> Amir knows the job market is particulary tough for new grads right now, and has heard from his friends that the AI resume screening tools that so many companies aren\'t extactly fair. In fact his friend Sayan told him that she only started getting interviews after changing her name on her resume to Sarah. She said that once you get an interview everything is just fine, but that gaming the resume screening AI by pretending to seem more "white" is "just what you have to do" to get an interview nowadays. <br><br> Amir feels strongly that no company in 2026 would really use such a system. And if even if they did, that would definitely not be the type of company that <i>he</i> would want to work for. At he same time he is really starting to feel anxious about his lack of interview offers...',
+      body: 'Amir has recently graduated from university with a bachelor\'s of commerce and is looking to get his start in industry and be able to better support his mother as she reaches retirement as well as his future kids - he hopes to have 3. <br><br> Amir knows the job market is particularly tough for new grads right now, and has heard from his friends that the AI resume screening tools that so many companies aren\'t exactly fair. In fact his friend Sayan told him that she only started getting interviews after changing her name on her resume to Sarah. She said that once you get an interview everything is just fine, but that gaming the resume screening AI by pretending to seem more "white" is "just what you have to do" to get an interview nowadays. <br><br> Amir feels strongly that no company in 2026 would really use such a system. And even if they did, that would definitely not be the type of company that <i>he</i> would want to work for. At the same time he is really starting to feel anxious about his lack of interview offers...',
       photo: null,
     },
     {
       label: 'Keeping his head above water in a torrent of job applications',
       title: 'Joel',
-      body: 'Joel is in his 40s and left his previous position to become the HR manager of a brand new financial firm for just over 3 years ago. The company now has more than 50 employees and Joel is really loving working for a company where he knows everybody\'s name. Joel takes special pride in the new grads he hires, seeing them grow into the professionals he saw in them when he interviewed them. <br><br> But handling HR and finding new candidates in today\'s job landscape is no easy task. Before retiring after a nasty battle with COVID, Joel\'s Aunt was a human rights lawyer and his hero. He learned all about how biases and stereotypes can subconciously influece a person\'s decision-making, which sparked his interested in AI resume sorting systems in the first place. <br><br> In the mid 2010s the first commercially avaialbe AI resume filtering systems were being sold as a way to "remove the human bias" from the screening process. While Joel had quickly grown disillusioned by the reality of these so-called "human bias-free" AI systems he also saw the potential for these tools as a way to help navigate the seemingly endless number of applictions that companies were recieving - last month alone he had recieved more than 8,000 resumes for just 3 positions! Afterall, if Joel made sure he was being really dilligent in not letting his pre-existing biases influence his hiring decisions, surely that could make up for the AI\'s limitations... especially considering the alternative of not having the time to even look at most of the resumes he recieved!',
+      body: 'Joel is in his 40s and left his previous position to become the HR manager of a brand new financial firm for just over 3 years ago. The company now has more than 50 employees and Joel is really loving working for a company where he knows everybody\'s name. Joel takes special pride in the new grads he hires, seeing them grow into the professionals he saw in them when he interviewed them. <br><br> But handling HR and finding new candidates in today\'s job landscape is no easy task. Before retiring after a nasty battle with COVID, Joel\'s Aunt was a human rights lawyer and his hero. He learned all about how biases and stereotypes can subconsciously influence a person\'s decision-making, which sparked his interested in AI resume sorting systems in the first place. <br><br> In the mid 2010s the first commercially available AI resume filtering systems were being sold as a way to "remove the human bias" from the screening process. While Joel had quickly grown disillusioned by the reality of these so-called "human bias-free" AI systems he also saw the potential for these tools as a way to help navigate the seemingly endless number of applications that companies were receiving - last month alone he had received more than 8,000 resumes for just 3 positions! After all, if Joel made sure he was being really diligent in not letting his pre-existing biases influence his hiring decisions, surely that could make up for the AI\'s limitations... especially considering the alternative of not having the time to even look at most of the resumes he received!',
       photo: null,
     },
     {
       label: 'Concerned AI researcher',
       title: 'Katya',
-      body: 'Katya, a scientist in her early 30s, earned her PhD studying advanced algorithm design and has prided herself in her creativity and unique puzzle-solving ability ever since she was given her first LEGO set as hand-me-down from her older sister. Katya has never shied away from being herself and looks back fondly on her work as a member of her school\'s Women in STEM society throughout her graduate studies. It was one of her big inspirations for setting up an "anyone can code" workshop with her local libray shortly after moving cities to take start her current position as Cheif Computer Scientist for an up-and-coming tech company. <br><br> Katya\'s work has given her the opportunity to collaborate with computer scientists from all over the world, an opportunity she was sure not to miss. <br><br> Over the past few yeasrs Katya has seen a number of troubling issues regarding the fairness of current AI resume screening systems and this has inspired her to create a new AI resume screening system that is less discriminatory towards people with "non-English" names.',
+      body: 'Katya, a scientist in her early 30s, earned her PhD studying advanced algorithm design and has prided herself in her creativity and unique puzzle-solving ability ever since she was given her first LEGO set as hand-me-down from her older sister. Katya has never shied away from being herself and looks back fondly on her work as a member of her school\'s Women in STEM society throughout her graduate studies. It was one of her big inspirations for setting up an "anyone can code" workshop with her local library shortly after moving cities to take start her current position as Chief Computer Scientist for an up-and-coming tech company. <br><br> Katya\'s work has given her the opportunity to collaborate with computer scientists from all over the world, an opportunity she was sure not to miss. <br><br> Over the past few years Katya has seen a number of troubling issues regarding the fairness of current AI resume screening systems and this has inspired her to create a new AI resume screening system that is less discriminatory towards people with "non-English" names.',
       photo: null,
     },
   ];
@@ -195,10 +195,11 @@
   <!--- Intro section -->
   <div class="intro">
     <h2>What's Happening Now</h2>
+    <br>
     <p>
-      As AI and other prediction-baesd technologies have been rapidly incorporated into nearly every industry and aspect of life we often see scifi-esque speculation about "AIs evolving beyond human control" or disucssions of the "extistential threat" that AI will pose in the at some unspecified point in our future.
-      <br><br>
-      However, despite the seeming urgence of these concerns, what is rarely talked about in these discussions of the dangers of AI are the <strong style="color: #e05c8a;">real harms</strong> that these technologies are causing <strong style="color: #e05c8a;">right now</strong>.
+      As AI and other prediction-based technologies have been rapidly incorporated into nearly every industry and aspect of life, we often see SciFi-esque speculation about "AI evolving beyond human control" or discussions of the "existential threat" that AI will pose in the at some unspecified point in our future.
+      
+      However, despite the seeming urgency of these concerns, what is rarely talked about in these discussions of the dangers of AI are the <strong style="color: #e05c8a;">real harms</strong> that these technologies are causing <strong style="color: #e05c8a;">right now</strong>.
       <br><br>
     </p>
     <br>
@@ -266,14 +267,12 @@
   <!--- Outro section -->
   <section class="outro">
     <h2>So what?</h2>
+    <br>
     <p>
-      Amir, Joel, Katya, and the thousands of people all over the world like them are deeply passionate about making fair AI systems, so why hasn't it happened?
-      <br><br>
-      It is easy to brush off these failures as being the results of corporate greed or a lack of caring by those in power, but there is also a fundamental component of fairness that is missing from current efforts to make fair AI systems - <strong style="color: #e05c8a;">fairness is not single, measurable thing</strong>, it includes a variety of prinicples <strong style="color: #e05c8a;">that we decide to value</strong>. There is not universal equation for fairness. Fairness requires <strong style="color: #e05c8a;">us</strong>.
-      <br><br>
-      AI systems have the potential to be greatly beneficial, but no human-made technology exists outside of human influence. Similarly, the fairness of a technology is not an inherent part of the teechnology itself, it exists only within the context it is used and the experiences of the people who build, work with, and are afffected by it.
-      <br><br>
-      We can ensure that technologies are fair. But we can\'t do it alone.
+      Amir, Joel, Katya, and the thousands of people all over the world like them are deeply passionate about making fair AI systems, so why hasn't it happened? <br><br> 
+      It is easy to brush off these failures as being the results of corporate greed or a lack of caring by those in power, but there is also a fundamental component of fairness that is missing from current efforts to make fair AI systems - <strong style="color: #e05c8a;">fairness is not single, measurable thing</strong>, it includes a variety of principles <strong style="color: #e05c8a;">that we decide to value</strong>. There is no universal equation for fairness. <strong style="color: #2dcca0;">Fairness requires us</strong>. <br><br> 
+      AI systems have the potential to be greatly beneficial, but no human-made technology exists outside human influence. Similarly, the fairness of a technology is not an inherent part of the technology itself, it exists only within the context it is used and the experiences of the people who build, work with, and are affected by it. <br><br> 
+      We can ensure that the technology we use is fair. We can't do that alone.
     </p>
     <br>
   </section> 
@@ -405,7 +404,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--bg);
+    background: var(--accent);
     padding: 4rem 2rem;
   }
 
@@ -422,6 +421,8 @@
 
 /* ── Outro text section ─────────────────────────────── */
   :global(.outro) {
+    position: relative;
+    z-index: 1;
     max-width: 680px;   /* narrower than .page for comfortable reading */
     padding: 3rem 2rem;
     margin: 0 auto;

@@ -32,6 +32,7 @@
       .onStepEnter(({ index }) => { activeIndex = index; })
       .onStepExit(({ index, direction }) => {
         if (index === 0 && direction === 'up') activeIndex = 0;
+        if (index === steps.length - 1 && direction === 'down') activeIndex = -1;
       });
 
     const onResize = () => scroller.resize();
