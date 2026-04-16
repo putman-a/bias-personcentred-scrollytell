@@ -4,11 +4,11 @@
   import { loadData, DOMAINS } from '$lib/incidentData';
   import StatCard from '$lib/incidentStatCard.svelte';
   import Legend from '$lib/incidentLegend.svelte';
-  import IncidentChart from '$lib/IncidentChart.svelte';
+  import IncidentChart from '$lib/incidentChart.svelte';
   import Tooltip from '$lib/incidentTooltip.svelte';
   import Scroller from '$lib/scoller.svelte';
   import Step from '$lib/step.svelte';
-  import PhotoScroller from '$lib/PhotoScroller.svelte';
+  import PhotoScroller from '$lib/photoScroller.svelte';
   import { color } from 'chart.js/helpers';
 
   // ── Data ──────────────────────────────────────────────────────────────────
