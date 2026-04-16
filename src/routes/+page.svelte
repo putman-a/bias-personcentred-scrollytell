@@ -8,7 +8,7 @@
   import Tooltip from '$lib/incidentTooltip.svelte';
   import Scroller from '$lib/scoller.svelte';
   import Step from '$lib/step.svelte';
-  import PhotoScroller from '$lib/photoScroller.svelte';
+  import PhotoScroller from '$lib/PhotoScroller.svelte';
   import { color } from 'chart.js/helpers';
 
   // ── Data ──────────────────────────────────────────────────────────────────
